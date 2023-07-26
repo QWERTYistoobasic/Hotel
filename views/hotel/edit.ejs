@@ -1,0 +1,49 @@
+<% layout("/layout/boilerplate") %>
+    <div class="row">
+        <h1 class="text-center">New Hotel</h1>
+        <div class="col-6 offset-3">
+            <form action="/hotel/<%=hotel._id%>?_method=PUT" method="POST" class ="validated-form" enctype="multipart/form-data" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="hotels[title]" value="<%= hotel.title %>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="hotels[location]" value="<%= hotel.location %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Add More Images</label>
+                    <input type="file" name="image" id="image" multiple>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Campground Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                            aria-describedby="price-label" name="hotels[price]" value="<%= hotel.price %>" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="hotels[description]" required><%= hotel.description %></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Update Hotel</button>
+                </div>
+            </form>
+            <a href="/hotel">All Hotels</a>
+        </div>
+    </div>
